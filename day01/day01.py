@@ -21,7 +21,7 @@ def part2(caloriesList):
 def main():
     with open("input.txt", 'r') as input:
         lines = input.readlines()
-
+        
     caloriesList = part1(lines)
     part2(caloriesList)
 
