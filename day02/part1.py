@@ -24,6 +24,7 @@ def main():
     for line in lines:
         line = line.split(" ")
         opp_choice, player_choice= line[0], line[1].strip()
+
         if playerDict[player_choice] == "Rock" and opponentDict[opp_choice] == "Scissors" or playerDict[player_choice] == "Paper" and opponentDict[opp_choice] == "Rock" or playerDict[player_choice] == "Scissors" and opponentDict[opp_choice] == "Paper":
             points += 6
         elif opponentDict[opp_choice] == playerDict[player_choice]:

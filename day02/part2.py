@@ -3,34 +3,36 @@ opponentDict = {
   "B": "Paper",
   "C": "Scissors"
 }
-playerDict ={
-    "X": "Rock",
-    "Y": "Paper",
-    "Z": "Scissors"
-}
 
 def pointsForPlaying(choice):
-    if playerDict[choice] == "Rock": 
+    if choice == "A": 
         return 1
-    elif playerDict[choice] == "Paper": 
+    elif choice == "B": 
         return 2
-    elif playerDict[choice] == "Scissors":
+    elif choice == "C":
         return 3  
 
 def main():
+    options = list(opponentDict.keys())
     points = 0
-    last = ""
     with open("input.txt", 'r') as input:
         lines = input.readlines()
     for line in lines:
         line = line.split(" ")
-        opp_choice, player_choice= line[0], line[1].strip()
+        opp_choice, outcome = line[0], line[1].strip()
 
-        if playerDict[player_choice] == "Rock" and opponentDict[opp_choice] == "Scissors" or playerDict[player_choice] == "Paper" and opponentDict[opp_choice] == "Rock" or playerDict[player_choice] == "Scissors" and opponentDict[opp_choice] == "Paper":
-            points += 6
-        elif opponentDict[opp_choice] == playerDict[player_choice]:
+        opp_choice_index = options.index(opp_choice)
+        my_choice = opp_choice
+        points += 3
+        if outcome == 'X':
+            my_choice = options[(opp_choice_index + 2) % 3]
+            points -=3
+        elif outcome == 'Z':
+            my_choice = options[(opp_choice_index + 1) % 3]
             points += 3
-        points += pointsForPlaying(player_choice)
+    
+        points += pointsForPlaying(my_choice)
+       
     print(points)
     
 if __name__ == "__main__":
