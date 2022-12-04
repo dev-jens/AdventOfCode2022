@@ -11,7 +11,6 @@ def main():
 
     for i in range(0, len(lines), 3):
         p1, p2, p3 = lines[i], lines[i+1], lines[i+2]
-        print(p1, p2, p3)
         for j in range(len(p1)):
             if p2.__contains__(p1[j]) and p3.__contains__(p1[j]):
                 if p1[j].islower():
