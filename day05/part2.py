@@ -1,6 +1,5 @@
 import os.path
 
-
 INPUT_PATH = os.path.join(os.path.dirname(__file__), "input.txt")
 LOAD_PATH = os.path.join(os.path.dirname(__file__), "starting_stack.txt")
 
@@ -12,7 +11,6 @@ def peekTop(stack):
     print("solution part2 = ", end='')
     for i in range(1,len(stack)):
         print(stack[i][-1].replace('[','').replace(']',''), end='')
-
 
 def main():
     stack = []
@@ -43,8 +41,6 @@ def main():
     
     peekTop(stack)
             
-       
-
-
+ 
 if __name__ == '__main__':
     main()
