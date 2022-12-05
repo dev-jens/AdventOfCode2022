@@ -1,3 +1,6 @@
+import os.path
+
+INPUT_PATH = os.path.join(os.path.dirname(__file__), "input.txt")
 
 def part1(lines):
     caloriesList= []
@@ -19,7 +22,7 @@ def part2(caloriesList):
     print(f"Solution Part2 = {sum(caloriesList[-3:])}")
 
 def main():
-    with open("input.txt", 'r') as input:
+    with open(INPUT_PATH, 'r') as input:
         lines = input.readlines()
         
     caloriesList = part1(lines)
